@@ -7,7 +7,7 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Menu</mat-toolbar>
-    <mat-nav-list>
+    <mat-nav-list (click)="handleClose()">
       <a mat-list-item routerLink="home">Home</a>
       <a mat-list-item routerLink="flight-search">Flight Search</a>
       <!-- <a mat-list-item routerLink="passenger-search">Passenger Search</a> -->
@@ -16,6 +16,7 @@
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button
+        #burger
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
