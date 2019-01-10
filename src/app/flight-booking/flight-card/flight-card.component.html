@@ -24,7 +24,8 @@
     </button>
 
     <a
-      mat-mini-fab>
+      mat-mini-fab
+      [routerLink]="['/flight-booking/flight-edit', item.id, { showDetails: false } ]">
       <mat-icon>edit</mat-icon>
     </a>
   </mat-card-actions>

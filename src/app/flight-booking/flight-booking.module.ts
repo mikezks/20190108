@@ -7,6 +7,7 @@ import { FlightCardComponent } from './flight-card/flight-card.component';
 import { RouterModule } from '@angular/router';
 import { FlightEditComponent } from './flight-edit/flight-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FlightBookingRoutingModule } from './flight-booking-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    FlightBookingRoutingModule,
     ReactiveFormsModule,
     SharedModule
   ]
