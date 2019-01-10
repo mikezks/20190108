@@ -14,10 +14,12 @@ import {
 } from '@angular/material';
 
 import { CityPipe } from './pipes/city.pipe';
+import { CityValidatorDirective } from './validators/city-validator.directive';
 
 @NgModule({
   declarations: [
-    CityPipe
+    CityPipe,
+    CityValidatorDirective
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,8 @@ import { CityPipe } from './pipes/city.pipe';
     MatSidenavModule,
     MatSnackBarModule,
     MatToolbarModule,
-    CityPipe
+    CityPipe,
+    CityValidatorDirective
   ]
 })
 export class SharedModule { }

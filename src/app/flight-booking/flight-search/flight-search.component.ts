@@ -15,9 +15,11 @@ export class FlightSearchComponent implements OnInit {
   selectedFlight: Flight;
 
   basket: object = {
-    2: true,
-    5: true
   };
+
+  get showBasket() {
+    return !!Object.keys(this.basket).length;
+  }
 
   constructor(private flightService: FlightService) { }
 

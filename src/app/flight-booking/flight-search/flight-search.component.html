@@ -1,27 +1,48 @@
 <mat-card>
   <mat-card-title>Search for Flights</mat-card-title>
   <mat-card-content>
-    <mat-form-field>
-      <input
-        matInput
-        [(ngModel)]="from"
-        name="from"
-        placeholder="from">
-    </mat-form-field>
+    <form #form="ngForm">
+      <mat-form-field>
+        <input
+          matInput
+          [(ngModel)]="from"
+          name="from"
+          placeholder="from"
+          required
+          minlength="3"
+          maxlength="20"
+          pattern="[a-zA-Z]*"
+          city>
+        <mat-error
+          *ngIf="form?.controls['from']?.hasError('required')">
+          required error</mat-error>
+        <mat-error
+          *ngIf="form?.controls['from']?.hasError('minlength')">
+          minlength error</mat-error>
+        <mat-error
+          *ngIf="form?.controls['from']?.hasError('pattern')">
+          pattern error</mat-error>
+        <mat-error
+          *ngIf="form?.controls['from']?.hasError('city')">
+          city error</mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <input
-        matInput
-        [(ngModel)]="to"
-        name="to"
-        placeholder="to">
-    </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          [(ngModel)]="to"
+          name="to"
+          placeholder="to">
+      </mat-form-field>
+
+      <pre>{{ form?.controls['from']?.errors | json }}</pre>
+    </form>
   </mat-card-content>
   <mat-card-actions>
     <button
       mat-raised-button
       (click)="search()"
-      [disabled]="!from || !to"
+      [disabled]="form?.invalid"
       color="primary">Search</button>
     <button
       mat-raised-button
@@ -46,6 +67,6 @@
     </div>
 </div>
 
-<mat-card>
+<mat-card *ngIf="showBasket">
   <pre>{{ basket | json }}</pre>
 </mat-card>
