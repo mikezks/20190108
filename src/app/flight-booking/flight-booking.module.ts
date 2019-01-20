@@ -8,12 +8,14 @@ import { RouterModule } from '@angular/router';
 import { FlightEditComponent } from './flight-edit/flight-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlightBookingRoutingModule } from './flight-booking-routing.module';
+import { FlightDynamicSearchComponent } from './flight-dynamic-search/flight-dynamic-search.component';
 
 @NgModule({
   declarations: [
     FlightSearchComponent,
     FlightCardComponent,
-    FlightEditComponent
+    FlightEditComponent,
+    FlightDynamicSearchComponent
   ],
   imports: [
     CommonModule,
